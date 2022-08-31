@@ -41,13 +41,12 @@ function Favorites({
             )
             .map((item,index) => (
               <Card
-                key={0-index}
+                key={-1-index}
                 title={item.title}
                 id={item.id}
                 price={item.price}
                 imageURL={item.imageURL}
                 onAddItem={onAddToCart}
-                onFavorite={onAddtoFavorite}
               />
             ))
         ) : (

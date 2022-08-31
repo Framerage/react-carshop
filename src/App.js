@@ -26,25 +26,21 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      try{
+      try {
         setIsLoading(true);
-        const [resCart,resFavorites,resItems]=await Promise.all([
-          axios.get(
-          "https://6301500e9a1035c7f800b13a.mockapi.io/cartItems"
-        ),axios.get(
-          "https://6301500e9a1035c7f800b13a.mockapi.io/favorites"
-        ),axios.get(
-          "https://6301500e9a1035c7f800b13a.mockapi.io/base"
-        )]);
+        const [resCart, resFavorites, resItems] = await Promise.all([
+          axios.get("https://6301500e9a1035c7f800b13a.mockapi.io/cartItems"),
+          axios.get("https://6301500e9a1035c7f800b13a.mockapi.io/favorites"),
+          axios.get("https://6301500e9a1035c7f800b13a.mockapi.io/base"),
+        ]);
 
         setIsLoading(false);
-  
+
         setCartItems(resCart.data);
         setFavoritesCard(resFavorites.data);
         setItems(resItems.data);
-      }
-      catch(error){
-        alert('Owibka')
+      } catch (error) {
+        alert("Owibka");
       }
     }
     fetchData();
@@ -64,38 +60,62 @@ function App() {
   //     });
   // }, []);
 
-  const onAddToCart = async(obj) => {
-    try{
-      if (cartItems.find((el) => Number(el.id) === Number(obj.id))) {
-        await axios.delete(
-          `https://6301500e9a1035c7f800b13a.mockapi.io/cartItems/${obj.id}`
-        );
+  const onAddToCart = async (obj) => {
+    try {
+      const findItem = cartItems.find(
+        (el) => Number(el.parentId) === Number(obj.id)
+      );
+      if (findItem) {
         setCartItems((prev) =>
-          prev.filter((el) => Number(el.id) !== Number(obj.id))
+          prev.filter((el) => Number(el.parentId) !== Number(obj.id))
+        );
+        await axios.delete(
+          `https://6301500e9a1035c7f800b13a.mockapi.io/cartItems/${findItem.id}`
         );
       } else {
-        await axios.post("https://6301500e9a1035c7f800b13a.mockapi.io/cartItems", obj);
         setCartItems((prev) => [...prev, obj]);
+        const { data } = await axios.post(
+          "https://6301500e9a1035c7f800b13a.mockapi.io/cartItems",
+          obj
+        );
+        setCartItems((prev) => prev.map((item)=>{
+          if(item.parentId===data.parentId){
+            return {
+              ...item,
+              id:data.id
+            }
+          }
+          return item;
+        }));
       }
-    }
-    catch(error){
-      console.log('beda, ', error)
+    } catch (error) {
+      console.log("beda, ", error);
     }
   };
 
   const onAddtoFavorite = async (obj) => {
+    const findItem=favoritesCard.find((el) => Number(el.parentId) === Number(obj.id))
     try {
-      if (favoritesCard.find((el) => Number(el.id) === Number(obj.id))) {
+      if (findItem) {
+        setFavoritesCard((prev) => prev.filter((el) => Number(el.parentId) !== Number(obj.id)));
         axios.delete(
-          `https://6301500e9a1035c7f800b13a.mockapi.io/favorites/${obj.id}`
+          `https://6301500e9a1035c7f800b13a.mockapi.io/favorites/${findItem.id}`
         );
-        setFavoritesCard((prev) => prev.filter((el) => el.id !== obj.id));
       } else {
-        await axios.post(
+        setFavoritesCard((prev) => [...prev, obj]);
+        const { data } = await axios.post(
           "https://6301500e9a1035c7f800b13a.mockapi.io/favorites",
           obj
         );
-        setFavoritesCard((prev) => [...prev, obj]);
+        setFavoritesCard((prev) => prev.map((item)=>{
+          if(item.parentId===data.parentId){
+            return {
+              ...item,
+              id:data.id
+            }
+          }
+          return item;
+        }));
       }
     } catch (error) {
       alert("Not add", error);
@@ -103,16 +123,17 @@ function App() {
   };
 
   const onRemoveCartItems = (id) => {
-    try{
-      axios.delete(`https://6301500e9a1035c7f800b13a.mockapi.io/cartItems/${id}`);
+    try {
+      axios.delete(
+        `https://6301500e9a1035c7f800b13a.mockapi.io/cartItems/${id}`
+      );
       setCartItems((prev) => prev.filter((el) => Number(el.id) !== Number(id)));
-    }
-    catch(error){
-      alert(' Owibka udaleniya ',error)
+    } catch (error) {
+      alert(" Owibka udaleniya ", error);
     }
   };
   const isItemAdded = (id) => {
-    return  cartItems.some((obj) => Number(obj.parentId) === Number(id));
+    return cartItems.some((obj) => Number(obj.parentId) === Number(id));
   };
   const isItemChoosed = (id) => {
     return favoritesCard.some((obj) => Number(obj.parentId) === Number(id));
@@ -132,13 +153,12 @@ function App() {
       }}
     >
       <div className="wrapper">
-        
-      <Drawer
-            items={cartItems}
-            onCloseCart={() => setCartOpened(false)}
-            onRemove={onRemoveCartItems}
-            opened={cartOpened}
-          />
+        <Drawer
+          items={cartItems}
+          onCloseCart={() => setCartOpened(false)}
+          onRemove={onRemoveCartItems}
+          opened={cartOpened}
+        />
         <Header onClickCart={() => setCartOpened(true)} />
         <Routes>
           <Route
@@ -165,7 +185,7 @@ function App() {
               />
             }
           />
-                    <Route
+          <Route
             path="/react-carshop/orders"
             element={
               <Orders
