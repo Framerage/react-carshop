@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-carshop/static/css/main.2349ca36.css",
-    "main.js": "/react-carshop/static/js/main.9ce3d3ba.js",
+    "main.js": "/react-carshop/static/js/main.fe2fa6e6.js",
     "index.html": "/react-carshop/index.html",
     "main.2349ca36.css.map": "/react-carshop/static/css/main.2349ca36.css.map",
-    "main.9ce3d3ba.js.map": "/react-carshop/static/js/main.9ce3d3ba.js.map"
+    "main.fe2fa6e6.js.map": "/react-carshop/static/js/main.fe2fa6e6.js.map"
   },
   "entrypoints": [
     "static/css/main.2349ca36.css",
-    "static/js/main.9ce3d3ba.js"
+    "static/js/main.fe2fa6e6.js"
   ]
 }
