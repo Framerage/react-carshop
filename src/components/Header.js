@@ -15,7 +15,7 @@ function Header(props){
             alt="Logo"
             style={{ width: "40px", height: "40px", borderRadius: "20px" }}
           />
-          <Link to='/'>          
+          <Link to='/react-carshop/'>          
           <div className="headerInfo">
             <h3 className="text__uppercase">React sneackers</h3>
             <p style={{ opacity: "0.5" }}>Магазин лучших машин</p>
@@ -35,7 +35,7 @@ function Header(props){
             <span>{cartItems ? orderPrice : '0'} rub</span>
           </li>
           <li>
-            <Link to='/favorites'>          
+            <Link to='/react-carshop/favorites'>          
             <img
               src="/img/heart.svg"
               alt="Login"
@@ -44,7 +44,7 @@ function Header(props){
               style={{borderRadius:'9px',marginRight:'30px'}}
             /></Link>
 
-            <Link to='/orders'>
+            <Link to='/react-carshop/orders'>
             <img
               src="/img/user.png"
               alt="Login"
