@@ -46,7 +46,6 @@ function Favorites({
                 id={item.id}
                 price={item.price}
                 imageURL={item.imageURL}
-                onAddItem={onAddToCart}
               />
             ))
         ) : (
