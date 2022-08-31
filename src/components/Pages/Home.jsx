@@ -35,7 +35,7 @@ const Home = ({
             className="search-block__pic"
             width={32}
             height={32}
-            src="/img/search.svg"
+            src="./img/search.svg"
             alt="Search"
           />
           <input

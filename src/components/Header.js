@@ -11,7 +11,7 @@ function Header(props){
         <header>
         <div className="headerLeft">
           <img
-            src="/img/logo.jpg"
+            src="./img/logo.jpg"
             alt="Logo"
             style={{ width: "40px", height: "40px", borderRadius: "20px" }}
           />
@@ -26,7 +26,7 @@ function Header(props){
         <ul className="headerRight">
           <li onClick={props.onClickCart} style={{ margin: "0 30px" ,cursor:'pointer'}}>
             <img
-              src="/img/packet.png"
+              src="./img/packet.png"
               alt="Cart"
               width={18}
               height={18}
@@ -37,7 +37,7 @@ function Header(props){
           <li>
             <Link to='/react-carshop/favorites'>          
             <img
-              src="/img/heart.svg"
+              src="./img/heart.svg"
               alt="Login"
               width={18}
               height={18}
@@ -46,7 +46,7 @@ function Header(props){
 
             <Link to='/react-carshop/orders'>
             <img
-              src="/img/user.png"
+              src="./img/user.png"
               alt="Login"
               width={18}
               height={18}

@@ -42,7 +42,7 @@ function Drawer({ onCloseCart, items, onRemove,opened }) {
             className={styles.drawer__removeBtn}
             width={32}
             height={32}
-            src="/img/btn-remove.svg"
+            src="./img/btn-remove.svg"
             alt="Close"
           />
         </h2>
@@ -65,7 +65,7 @@ function Drawer({ onCloseCart, items, onRemove,opened }) {
                     className="cartItem__removeBtn"
                     width={32}
                     height={32}
-                    src="/img/btn-remove.svg"
+                    src="./img/btn-remove.svg"
                     alt="Remove"
                   />
                 </div>
@@ -85,7 +85,7 @@ function Drawer({ onCloseCart, items, onRemove,opened }) {
                 </li>
               </ul>
               <button disabled={isLoadingOrders} onClick={onClickOrder} className='greenBtn'>
-                Оформить заказ <img src="/img/arrow.svg" alt="Arrow" />{" "}
+                Оформить заказ <img src="./img/arrow.svg" alt="Arrow" />{" "}
               </button>
             </div>
           </div>
@@ -93,7 +93,7 @@ function Drawer({ onCloseCart, items, onRemove,opened }) {
           <Info
             title={isOrderComlete ?'Order comleted'  : "Cart empty"}
             description={isOrderComlete ? `Your order #${orderId} will sent` : "Please add some order"}
-            image={isOrderComlete ? '/img/complete-order.jpg' : "/img/empty-cart.jpg"}
+            image={isOrderComlete ? './img/complete-order.jpg' : "./img/empty-cart.jpg"}
           />
         )}
       </div>

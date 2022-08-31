@@ -35,8 +35,8 @@ function Orders({
 
   const renderItems=()=>        {
     const orderItems=orders.filter((elem) => elem.title.toLocaleLowerCase().includes(searchedItems.toLocaleLowerCase()))
-    return (isOrdersLoad ? [...Array(8)] : orderItems)
-      .map((item,index) => (
+    return isOrdersLoad ? [...Array(8)] : orderItems.length>0 ? orderItems
+    .map((item,index) => (
         <Card
           key={index*3}
           {...item}
@@ -45,6 +45,8 @@ function Orders({
           loading={isOrdersLoad}
         />
       ))
+      :
+      <h1>Nothing</h1>
   }
   return (
     <div className="content">
@@ -59,7 +61,7 @@ function Orders({
             className="search-block__pic"
             width={32}
             height={32}
-            src="/img/search.svg"
+            src="./img/search.svg"
             alt="Search"
           />
           <input
