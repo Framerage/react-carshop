@@ -1,0 +1,74 @@
+[
+    {
+     "title": "Cyber car light version, illusion",
+     "price": 12999,
+     "imageURL": "/img/cars/cyberbmw.jpg",
+     "id": 1
+    },
+    {
+     "title": "Fastest car light version, illusion",
+     "price": 3333,
+     "imageURL": "/img/cars/limuz.jpg",
+     "id": 2
+    },
+    {
+     "title": "Great car light version, illusion",
+     "price": 12999,
+     "imageURL": "/img/cars/minicar.jpg",
+     "id": 3
+    },
+    {
+     "title": "Cyber car light version, illusion",
+     "price": 12999,
+     "imageURL": "/img/cars/yelcar.jpg",
+     "id": 4
+    },
+    {
+     "title": "Best car light version, illusion",
+     "price": 12559,
+     "imageURL": "/img/cars/crashcar.jpg",
+     "id": 5
+    },
+    {
+     "title": "Long car light version, illusion",
+     "price": 12999,
+     "imageURL": "/img/cars/sweatcar.jpg",
+     "id": 6
+    },
+    {
+     "title": "Cyber car light version, illusion",
+     "price": 12999,
+     "imageURL": "/img/cars/offroad.jpg",
+     "id": 7
+    },
+    {
+     "title": "Dirty car light version, illusion",
+     "price": 22000,
+     "imageURL": "/img/cars/sport.jpg",
+     "id": 8
+    },
+    {
+     "title": "Strong car light version, illusion",
+     "price": 12559,
+     "imageURL": "/img/cars/musculcar.jpg",
+     "id": 9
+    },
+    {
+     "title": "Long car light version, illusion",
+     "price": 12999,
+     "imageURL": "/img/cars/sweatcar.jpg",
+     "id": 10
+    },
+    {
+     "title": "Cyber car light version, illusion",
+     "price": 12999,
+     "imageURL": "/img/cars/cybermask.jpeg",
+     "id": 11
+    },
+    {
+     "title": "Old, vary vary oldcar light version, illusion",
+     "price": 22000,
+     "imageURL": "/img/cars/zaporcar.jpg",
+     "id": 12
+    }
+   ]
