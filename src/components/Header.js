@@ -17,7 +17,7 @@ function Header(props){
           />
           <Link to='/react-carshop/'>          
           <div className="headerInfo">
-            <h3 className="text__uppercase">React sneackers</h3>
+            <h3 className="text__uppercase">React cybercars</h3>
             <p style={{ opacity: "0.5" }}>Магазин лучших машин</p>
           </div></Link>
 
